@@ -1,0 +1,72 @@
+/* Payment Gateway Stylesheet - Light Blue & White Official Corporate Design */
+.rh-pg-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-pg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+  top: -150px;
+  right: -100px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.rh-pg-checkout-box {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+}
+
+.rh-pg-tab-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.rh-pg-tab-btn:hover {
+  background: #f0f7ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+.rh-pg-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  border-color: #0284c7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+}
+
+.rh-settlement-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.rh-settlement-card.selected {
+  border-color: #0284c7;
+  background: #f0f7ff;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
+}

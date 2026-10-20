@@ -1,0 +1,87 @@
+/* Footer Styles - Light Blue & White Official Corporate Design */
+.rh-footer {
+  background: #f8fbff;
+  border-top: 1px solid #e2e8f0;
+  padding: 4.5rem 0 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.rh-footer-cta-card {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f7ff 100%);
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(2, 132, 199, 0.08);
+}
+
+.rh-footer-title {
+  color: #0f172a;
+  font-family: var(--rh-font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.rh-footer-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 28px;
+  height: 2.5px;
+  background: #0284c7;
+  border-radius: 2px;
+}
+
+.rh-footer-link {
+  color: #475569;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  transition: all 0.2s ease;
+}
+
+.rh-footer-link:hover {
+  color: #0284c7;
+  transform: translateX(4px);
+}
+
+.rh-footer-link i {
+  font-size: 0.75rem;
+  color: #0284c7;
+  opacity: 0.8;
+}
+
+.rh-newsletter-input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  border-radius: 9999px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.rh-newsletter-input:focus {
+  background: #ffffff;
+  border-color: #0284c7;
+  color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  outline: none;
+}
+
+.rh-footer-badge {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}

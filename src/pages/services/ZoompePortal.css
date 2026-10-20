@@ -1,0 +1,51 @@
+/* Zoompe Retailer Portal Dedicated Stylesheet - Light Blue & White Corporate Design */
+.rh-zoompe-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+              radial-gradient(circle at 15% 75%, rgba(2, 132, 199, 0.08) 0%, transparent 55%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-zoompe-badge {
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.rh-calculator-box {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.rh-service-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.rh-service-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  color: #334155;
+}
+
+.rh-service-chip:hover {
+  background: #f0f7ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,86 @@
+/* PPI Wallet Solutions Dedicated Stylesheet - Light Blue & White Corporate Design */
+.rh-ppi-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+              radial-gradient(circle at 20% 75%, rgba(2, 132, 199, 0.08) 0%, transparent 55%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-card-designer-box {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.rh-virtual-card {
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+  margin: 0 auto;
+}
+
+.rh-virtual-card.theme-navy {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rh-virtual-card.theme-gold {
+  background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rh-virtual-card.theme-emerald {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rh-virtual-card.theme-purple {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.rh-card-chip {
+  width: 44px;
+  height: 32px;
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 100%);
+  border-radius: 6px;
+  position: relative;
+}
+
+.rh-card-chip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.rh-theme-picker-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rh-theme-picker-btn.active {
+  border-color: #0284c7;
+  transform: scale(1.15);
+}

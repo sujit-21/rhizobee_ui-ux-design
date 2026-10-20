@@ -1,0 +1,49 @@
+/* Banking & AEPS Dedicated Stylesheet - Light Blue & White Corporate Design */
+.rh-banking-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+              radial-gradient(circle at 15% 75%, rgba(2, 132, 199, 0.08) 0%, transparent 55%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-aeps-box {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.rh-fingerprint-scanner {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f0f7ff 0%, #e0f2fe 80%);
+  border: 3px solid #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
+}
+
+.rh-fingerprint-scanner:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3);
+}
+
+.rh-fingerprint-scanner.scanning {
+  animation: fpPulse 0.8s ease-in-out infinite alternate;
+  border-color: #0284c7;
+}
+
+@keyframes fpPulse {
+  0% { box-shadow: 0 0 15px rgba(2, 132, 199, 0.2); }
+  100% { box-shadow: 0 0 35px rgba(2, 132, 199, 0.5); }
+}

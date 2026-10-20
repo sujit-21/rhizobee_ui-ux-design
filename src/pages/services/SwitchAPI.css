@@ -1,0 +1,45 @@
+/* Switch API Dedicated Stylesheet - Light Blue & White Corporate Design */
+.rh-switch-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.14) 0%, transparent 60%),
+              radial-gradient(circle at 15% 75%, rgba(2, 132, 199, 0.08) 0%, transparent 55%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-api-sandbox-box {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.rh-latency-badge {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #059669;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.rh-switch-node {
+  background: #f8fbff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.85rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #334155;
+}
+
+.rh-switch-node.active-routing {
+  border-color: #0284c7;
+  background: #e0f2fe;
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.2);
+  color: #0284c7;
+}

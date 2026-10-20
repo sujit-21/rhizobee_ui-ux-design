@@ -1,0 +1,83 @@
+/* POS Devices Dedicated Stylesheet - Light Blue & White Corporate Design */
+.rh-pos-hero {
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  background: radial-gradient(circle at 70% 30%, rgba(14, 165, 233, 0.14) 0%, transparent 55%),
+              radial-gradient(circle at 20% 70%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+              linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rh-pos-terminal {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+
+.rh-pos-screen {
+  background: #f8fbff;
+  border: 2px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rh-pos-printer-slot {
+  width: 120px;
+  height: 6px;
+  background: #94a3b8;
+  border-radius: 3px;
+  margin: 0 auto 1.25rem auto;
+  position: relative;
+}
+
+.rh-receipt-paper {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 1rem;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.72rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  animation: printPaper 1s ease-out forwards;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+@keyframes printPaper {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.rh-nfc-tap-zone {
+  border: 2px dashed rgba(2, 132, 199, 0.4);
+  border-radius: 14px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f0f7ff;
+}
+
+.rh-nfc-tap-zone:hover {
+  background: #e0f2fe;
+  border-color: #0284c7;
+}
+
+.rh-card-swipe-badge {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
