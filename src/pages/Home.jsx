@@ -227,69 +227,63 @@ export default function Home({ onOpenConsultation }) {
       {/* Introducing Zoompe Feature Banner */}
       <section className="py-5" style={{ background: '#ffffff' }}>
         <div className="container py-4">
-          <div className="rh-card p-4 p-md-5" style={{ background: 'linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%)', borderColor: '#fed7aa', boxShadow: '0 10px 30px rgba(249, 115, 22, 0.08)' }}>
-            <div className="row align-items-center g-5">
-              <div className="col-lg-7">
-                <span className="rh-badge mb-3 d-inline-block" style={{ background: '#ffedd5', color: '#c2410c', border: '1px solid #fed7aa' }}>
-                  <i className="bi bi-shop me-1"></i> Dedicated Retailer Network
-                </span>
-                <h2 className="display-6 fw-bold text-dark mb-3">
-                  Introducing <span style={{ color: '#ea580c' }}>Zoompe</span> — Our Retailer Portal
-                </h2>
-                <p className="text-secondary leading-relaxed mb-4">
-                  We are excited to launch Zoompe, our dedicated retailer portal designed to empower 
-                  businesses and individuals with a complete suite of digital services, all under one platform. 
-                  Whether you're a small shop owner, a CSP agent, or an entrepreneur looking to expand your 
-                  service offerings, Zoompe gives you everything you need to serve your customers better and grow your business.
-                </p>
+          <div 
+            className="rh-card p-4 p-md-5" 
+            style={{ 
+              background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)', 
+              borderColor: '#bae6fd', 
+              boxShadow: '0 10px 30px rgba(2, 132, 199, 0.08)' 
+            }}
+          >
+            <div>
+              <span className="rh-badge rh-badge-blue mb-3 d-inline-block">
+                <i className="bi bi-shop me-1.5"></i> Dedicated Retailer Network
+              </span>
+              <h2 className="display-6 fw-bold text-dark mb-3">
+                Introducing <span style={{ color: 'var(--rh-blue-600, #0284c7)' }}>Zoompe</span> — Our Retailer Portal
+              </h2>
+              <p className="text-secondary leading-relaxed mb-4" style={{ maxWidth: '850px' }}>
+                We are excited to launch Zoompe, our dedicated retailer portal designed to empower 
+                businesses and individuals with a complete suite of digital services, all under one platform. 
+                Whether you're a small shop owner, a CSP agent, or an entrepreneur looking to expand your 
+                service offerings, Zoompe gives you everything you need to serve your customers better and grow your business.
+              </p>
 
-                <div className="row g-2 mb-4 text-dark small fw-medium">
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> Micro ATM & AEPS
-                  </div>
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> Mobile & DTH Recharge
-                  </div>
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> BBPS Bill Payments
-                  </div>
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> Flight, Train & Hotel
-                  </div>
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> Insurance & Loans
-                  </div>
-                  <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
-                    <i className="bi bi-check2-circle text-warning fs-6"></i> Switch Unified API
-                  </div>
+              <div className="row g-2 mb-4 text-dark small fw-medium" style={{ maxWidth: '850px' }}>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> Micro ATM & AEPS
                 </div>
-
-                <div className="d-flex flex-wrap gap-3">
-                  <Link to="/services/zoompe-portal" className="btn btn-warning fw-bold px-4 py-2.5 rounded-pill text-white" style={{ background: '#ea580c', borderColor: '#ea580c' }}>
-                    Explore Zoompe Features
-                  </Link>
-                  <a 
-                    href="https://www.zoompe.in" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn btn-outline-dark rounded-pill px-4 py-2.5"
-                  >
-                    Visit www.zoompe.in <i className="bi bi-box-arrow-up-right ms-1"></i>
-                  </a>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> Mobile & DTH Recharge
+                </div>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> BBPS Bill Payments
+                </div>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> Flight, Train & Hotel
+                </div>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> Insurance & Loans
+                </div>
+                <div className="col-6 col-sm-4 d-flex align-items-center gap-2">
+                  <i className="bi bi-check2-circle text-primary fs-6"></i> Switch Unified API
                 </div>
               </div>
 
-              <div className="col-lg-5 text-center">
-                <div className="p-4 rounded-4" style={{ background: '#ffffff', border: '1px solid #fed7aa', boxShadow: '0 8px 24px rgba(234, 88, 12, 0.08)' }}>
-                  <i className="bi bi-phone-flip display-4 text-warning mb-3 d-block"></i>
-                  <h4 className="text-dark fw-bold mb-2">Turn Your Shop into a Digital Mini-Bank</h4>
-                  <p className="text-secondary small mb-3">
-                    Earn up to ₹40,000+ monthly in customer cash withdrawal and bill payment commissions.
-                  </p>
-                  <Link to="/services/zoompe-portal" className="btn btn-outline-warning text-dark fw-semibold btn-sm rounded-pill px-4" style={{ borderColor: '#f97316' }}>
-                    Calculate Your Commission
-                  </Link>
-                </div>
+              <div className="d-flex flex-wrap gap-3">
+                <Link to="/services/zoompe-portal" className="btn-rh-primary px-4 py-2.5">
+                  <span>Explore Zoompe Features</span>
+                  <i className="bi bi-arrow-right"></i>
+                </Link>
+                <a 
+                  href="https://www.zoompe.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-rh-outline px-4 py-2.5"
+                >
+                  <span>Visit www.zoompe.in</span>
+                  <i className="bi bi-box-arrow-up-right ms-1"></i>
+                </a>
               </div>
             </div>
           </div>
