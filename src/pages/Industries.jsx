@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PartnerMarquee from '../components/PartnerMarquee';
 import './Industries.css';
 
 export default function Industries({ onOpenConsultation }) {
+  const [activeFilter, setActiveFilter] = useState('All');
+
   const industries = [
     {
+      id: 'retail',
+      category: 'Storefront',
       title: 'Small Business Owners',
       icon: 'bi-shop',
       tagline: 'Simple, fraud-free counter acceptance',
@@ -14,6 +18,8 @@ export default function Industries({ onOpenConsultation }) {
       targetLink: '/services/soundbox'
     },
     {
+      id: 'sme',
+      category: 'Storefront',
       title: 'SMEs & Retail Chains',
       icon: 'bi-bag-check',
       tagline: 'Speed up checkout and delight shoppers',
@@ -22,6 +28,8 @@ export default function Industries({ onOpenConsultation }) {
       targetLink: '/services/pos-devices'
     },
     {
+      id: 'msme',
+      category: 'Enterprise',
       title: 'MSMEs & Manufacturers',
       icon: 'bi-gear-wide-connected',
       tagline: 'Streamlined vendor payouts and working capital',
@@ -30,6 +38,8 @@ export default function Industries({ onOpenConsultation }) {
       targetLink: '/services/switch-api'
     },
     {
+      id: 'corp',
+      category: 'Enterprise',
       title: 'Enterprises & Large Corporates',
       icon: 'bi-building-check',
       tagline: 'High-throughput payment gateway and expense control',
@@ -38,6 +48,8 @@ export default function Industries({ onOpenConsultation }) {
       targetLink: '/services/ppi-wallets'
     },
     {
+      id: 'rural',
+      category: 'Inclusion',
       title: 'Rural CSP & Digital Entrepreneurs',
       icon: 'bi-people',
       tagline: 'Empower communities with last-mile financial services',
@@ -46,6 +58,10 @@ export default function Industries({ onOpenConsultation }) {
       targetLink: '/services/zoompe-portal'
     }
   ];
+
+  const filtered = activeFilter === 'All' 
+    ? industries 
+    : industries.filter(ind => ind.category === activeFilter);
 
   return (
     <div className="rh-industries-page">
@@ -59,7 +75,7 @@ export default function Industries({ onOpenConsultation }) {
           </div>
 
           <span className="rh-badge rh-badge-cyan mb-3">
-            <i className="bi bi-buildings"></i> Tailored Sector Solutions
+            <i className="bi bi-buildings me-1"></i> Tailored Sector Solutions
           </span>
           <h1 className="rh-hero-title-oneline mb-3">
             Digital Payment Solutions for <span className="rh-gradient-text">Every Stage of Business</span>
@@ -69,25 +85,56 @@ export default function Industries({ onOpenConsultation }) {
             Rhizobee delivers the exact hardware, gateway APIs, and settlement speed your industry requires.
           </p>
 
-          <button 
-            onClick={() => onOpenConsultation('industries')}
-            className="btn-rh-primary px-4 py-3"
-          >
-            Schedule an Industry Consultation
-          </button>
+          <div className="d-flex justify-content-center gap-3 mb-4">
+            <button 
+              onClick={() => onOpenConsultation('industries')}
+              className="btn-rh-primary px-4 py-3"
+            >
+              <i className="bi bi-calendar2-check me-2"></i> Schedule an Industry Consultation
+            </button>
+          </div>
+
+          {/* Category Filter Pills */}
+          <div className="d-flex justify-content-center flex-wrap gap-2 pt-2">
+            {['All', 'Storefront', 'Enterprise', 'Inclusion'].map(cat => (
+              <button
+                key={cat}
+                className={`rh-ind-pill ${activeFilter === cat ? 'active' : ''}`}
+                onClick={() => setActiveFilter(cat)}
+              >
+                {cat === 'All' ? 'All Industries' : `${cat} Solutions`}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Industry Cards Grid */}
+      {/* Industry Cards Grid with 3D Parallax Tilt */}
       <section className="py-5" style={{ background: '#f8fbff' }}>
         <div className="container py-4">
           <div className="row g-4">
-            {industries.map((ind, idx) => (
+            {filtered.map((ind, idx) => (
               <div key={idx} className="col-lg-4 col-md-6">
-                <div className="rh-industry-card d-flex flex-column justify-content-between">
+                <div 
+                  className="rh-industry-card d-flex flex-column justify-content-between"
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    e.currentTarget.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-6px)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
                   <div>
-                    <div className="rh-feature-icon-box mb-3" style={{ background: '#e0f2fe', color: '#0284c7', border: '1px solid #bae6fd' }}>
-                      <i className={`bi ${ind.icon}`}></i>
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <div className="rh-feature-icon-box" style={{ background: '#e0f2fe', color: '#0284c7', border: '1px solid #bae6fd' }}>
+                        <i className={`bi ${ind.icon}`}></i>
+                      </div>
+                      <span className="badge bg-light text-primary border rounded-pill px-3 py-1 small fw-semibold">
+                        {ind.category}
+                      </span>
                     </div>
 
                     <h3 className="fs-5 fw-bold text-dark mb-1">{ind.title}</h3>

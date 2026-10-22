@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import confetti from 'canvas-confetti';
 import PartnerMarquee from '../../components/PartnerMarquee';
 import './ZoompePortal.css';
 
 export default function ZoompePortal({ onOpenConsultation }) {
+  const [aepsCount, setAepsCount] = useState(30);
+  const [bbpsCount, setBbpsCount] = useState(40);
+  const [dmtCount, setDmtCount] = useState(10);
+
+  // Live Commission Calculations (30 days per month)
+  const monthlyAeps = aepsCount * 12 * 30; // avg ₹12 per cash withdrawal
+  const monthlyBbps = bbpsCount * 3.5 * 30; // avg ₹3.50 per utility bill
+  const monthlyDmt = dmtCount * 22 * 30; // avg ₹22 per domestic remittance
+  const monthlyTotal = Math.round(monthlyAeps + monthlyBbps + monthlyDmt);
+  const annualTotal = monthlyTotal * 12;
+
+  const handleClaim = () => {
+    try {
+      confetti({
+        particleCount: 60,
+        spread: 75,
+        origin: { y: 0.6 }
+      });
+    } catch (e) {}
+    onOpenConsultation('zoompe-portal');
+  };
+
   return (
     <div className="rh-zoompe-page">
       {/* Hero Section */}
       <section className="rh-zoompe-hero">
-        <div className="container">
+        <div className="container position-relative">
           <div className="rh-breadcrumb justify-content-center">
             <Link to="/"><i className="bi bi-house"></i> Home</Link>
             <i className="bi bi-chevron-right"></i>
@@ -56,14 +79,146 @@ export default function ZoompePortal({ onOpenConsultation }) {
                   <i className="bi bi-box-arrow-up-right me-1"></i> Visit www.zoompe.in
                 </a>
                 <button 
-                  onClick={() => onOpenConsultation('zoompe-portal')}
+                  onClick={handleClaim}
                   className="btn-rh-outline px-4 py-3"
                 >
-                  <i className="bi bi-person-plus"></i> Register as Zoompe Agent
+                  <i className="bi bi-person-plus me-1"></i> Register as Zoompe Agent
                 </button>
-                <a href="#services-grid" className="btn-rh-outline px-4 py-3">
-                  Explore Services
-                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Live Retailer Commission Calculator */}
+      <section className="py-5" style={{ background: '#ffffff' }}>
+        <div className="container py-4">
+          <div className="rh-section-header">
+            <span className="rh-badge rh-badge-blue mb-2">Live Earnings Estimator</span>
+            <h2>How Much Can Your Shop Earn Every Month?</h2>
+            <p>Slide the volume controls below to calculate your estimated recurring retailer commissions.</p>
+          </div>
+
+          <div className="rh-calculator-box">
+            <div className="row g-5 align-items-center">
+              {/* Sliders Column */}
+              <div className="col-lg-7">
+                {/* Slider 1: AEPS & Micro ATM */}
+                <div className="mb-4">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <label className="fw-bold text-dark small">
+                      <i className="bi bi-bank text-primary me-2"></i> AEPS Cash Withdrawals / Micro ATM:
+                    </label>
+                    <span className="badge bg-primary-subtle text-primary border px-3 py-1 fw-bold fs-6">
+                      {aepsCount} txns / day
+                    </span>
+                  </div>
+                  <input 
+                    type="range" 
+                    className="form-range" 
+                    min="5" 
+                    max="100" 
+                    step="5"
+                    value={aepsCount}
+                    onChange={(e) => setAepsCount(Number(e.target.value))}
+                  />
+                  <div className="d-flex justify-content-between text-muted xx-small">
+                    <span>5 txns/day</span>
+                    <span>50 txns/day</span>
+                    <span>100 txns/day</span>
+                  </div>
+                </div>
+
+                {/* Slider 2: BBPS Utility Bills & Recharges */}
+                <div className="mb-4">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <label className="fw-bold text-dark small">
+                      <i className="bi bi-phone text-success me-2"></i> Bill Payments & Mobile Recharges:
+                    </label>
+                    <span className="badge bg-success-subtle text-success border px-3 py-1 fw-bold fs-6">
+                      {bbpsCount} bills / day
+                    </span>
+                  </div>
+                  <input 
+                    type="range" 
+                    className="form-range" 
+                    min="10" 
+                    max="150" 
+                    step="5"
+                    value={bbpsCount}
+                    onChange={(e) => setBbpsCount(Number(e.target.value))}
+                  />
+                  <div className="d-flex justify-content-between text-muted xx-small">
+                    <span>10 bills/day</span>
+                    <span>75 bills/day</span>
+                    <span>150 bills/day</span>
+                  </div>
+                </div>
+
+                {/* Slider 3: Money Transfer DMT */}
+                <div className="mb-3">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <label className="fw-bold text-dark small">
+                      <i className="bi bi-send text-info me-2"></i> Domestic Money Transfers (DMT):
+                    </label>
+                    <span className="badge bg-info-subtle text-info border px-3 py-1 fw-bold fs-6">
+                      {dmtCount} transfers / day
+                    </span>
+                  </div>
+                  <input 
+                    type="range" 
+                    className="form-range" 
+                    min="2" 
+                    max="50" 
+                    step="2"
+                    value={dmtCount}
+                    onChange={(e) => setDmtCount(Number(e.target.value))}
+                  />
+                  <div className="d-flex justify-content-between text-muted xx-small">
+                    <span>2 txns/day</span>
+                    <span>25 txns/day</span>
+                    <span>50 txns/day</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Earnings Result Card Column */}
+              <div className="col-lg-5">
+                <div className="rh-earnings-highlight-card text-center">
+                  <span className="badge bg-success text-white px-3 py-1 rounded-pill small fw-bold mb-3">
+                    <i className="bi bi-graph-up-arrow me-1"></i> Instant Daily Wallet Credit
+                  </span>
+                  <div className="text-muted small fw-semibold mb-1">ESTIMATED MONTHLY COMMISSION</div>
+                  <div className="display-4 fw-extrabold text-primary mb-2">
+                    ₹{monthlyTotal.toLocaleString('en-IN')}
+                  </div>
+                  <div className="badge bg-primary-subtle text-primary border rounded-pill px-3 py-1 mb-4">
+                    +₹{annualTotal.toLocaleString('en-IN')} Annual Store Boost
+                  </div>
+
+                  <div className="p-3 bg-light rounded-3 text-start small mb-4">
+                    <div className="d-flex justify-content-between mb-1">
+                      <span className="text-secondary">AEPS / ATM Earnings:</span>
+                      <strong className="text-dark">₹{Math.round(monthlyAeps).toLocaleString('en-IN')}</strong>
+                    </div>
+                    <div className="d-flex justify-content-between mb-1">
+                      <span className="text-secondary">Recharge / BBPS Bills:</span>
+                      <strong className="text-dark">₹{Math.round(monthlyBbps).toLocaleString('en-IN')}</strong>
+                    </div>
+                    <div className="d-flex justify-content-between">
+                      <span className="text-secondary">Money Transfers (DMT):</span>
+                      <strong className="text-dark">₹{Math.round(monthlyDmt).toLocaleString('en-IN')}</strong>
+                    </div>
+                  </div>
+
+                  <button 
+                    className="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                    onClick={handleClaim}
+                  >
+                    <i className="bi bi-check-circle-fill"></i>
+                    <span>Apply for Zoompe Agent ID</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

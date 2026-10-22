@@ -1,0 +1,524 @@
+/* PhonePe-Inspired Hero Slider Styles - Clean, Fluid & Enterprise Responsive */
+
+.rh-phonepe-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  background-color: #f8fbff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-image 0.6s ease;
+  padding: 3.5rem 0 2.5rem 0;
+}
+
+/* Ambient Lighting Orbs */
+.rh-pp-ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  opacity: 0.55;
+}
+
+.glow-1 {
+  top: -150px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: rgba(14, 165, 233, 0.18);
+}
+
+.glow-2 {
+  bottom: -150px;
+  left: -80px;
+  width: 450px;
+  height: 450px;
+  background: rgba(99, 102, 241, 0.12);
+}
+
+/* Hero Typography */
+.rh-pp-tag-pill {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
+}
+
+.rh-pp-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: ppPulse 1.6s infinite ease-in-out;
+}
+
+@keyframes ppPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.rh-pp-hero-headline {
+  font-family: var(--rh-font-heading, sans-serif);
+  font-size: 3.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.rh-pp-hero-subtitle {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: #475569;
+  max-width: 580px;
+}
+
+.rh-pp-badge-chip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* Action Buttons */
+.rh-pp-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.38);
+  transition: all 0.25s ease;
+}
+
+.rh-pp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -4px rgba(2, 132, 199, 0.48);
+}
+
+.rh-pp-btn-outline {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  font-weight: 600;
+  padding: 0.85rem 1.65rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s ease;
+}
+
+.rh-pp-btn-outline:hover {
+  background: #f8fafc;
+  border-color: #0284c7;
+  color: #0284c7;
+  transform: translateY(-2px);
+}
+
+/* PhonePe Central 3D Smartphone Stage */
+.rh-pp-phone-stage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+}
+
+/* Phone Bezel Hardware */
+.rh-pp-phone-frame {
+  position: relative;
+  z-index: 5;
+  width: 270px;
+  background: #111827;
+  border: 9px solid #1f2937;
+  border-radius: 42px;
+  box-shadow: 0 35px 80px -15px rgba(2, 132, 199, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.rh-pp-phone-frame:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.rh-pp-phone-notch {
+  width: 90px;
+  height: 18px;
+  background: #1f2937;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.rh-pp-notch-camera {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0b1120;
+}
+
+.rh-pp-notch-speaker {
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: #374151;
+}
+
+.rh-pp-phone-screen {
+  background: #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+.rh-pp-screen-header {
+  padding: 0.65rem 1rem 0.35rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #1e293b;
+}
+
+.rh-pp-app-bar {
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rh-pp-screen-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rh-pp-tx-amount {
+  font-family: var(--rh-font-heading, sans-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0.25rem 0;
+}
+
+.rh-pp-soundbox-wave-circle {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0.5rem auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rh-pp-soundbox-wave-circle .wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid #38bdf8;
+  animation: waveExpand 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+.rh-pp-soundbox-wave-circle .wave-1 { width: 60px; height: 60px; animation-delay: 0s; }
+.rh-pp-soundbox-wave-circle .wave-2 { width: 75px; height: 75px; animation-delay: 0.4s; }
+.rh-pp-soundbox-wave-circle .wave-3 { width: 90px; height: 90px; animation-delay: 0.8s; }
+
+@keyframes waveExpand {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+.rh-pp-soundbox-wave-circle .core-icon {
+  position: relative;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.4);
+}
+
+.rh-pp-receipt-strip {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.rh-pp-code-box {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 0.85rem;
+  text-align: left;
+}
+
+.rh-pp-screen-bottom-bar {
+  width: 90px;
+  height: 4px;
+  background: #94a3b8;
+  border-radius: 999px;
+  margin: 0.5rem auto 0.4rem auto;
+}
+
+/* PhonePe Signature Branching Floating Cards */
+.rh-pp-branch-card {
+  position: absolute;
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #bae6fd;
+  border-radius: 16px;
+  padding: 0.65rem 0.95rem;
+  box-shadow: 0 15px 35px -5px rgba(2, 132, 199, 0.18), 0 4px 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 210px;
+  transition: all 0.3s ease;
+}
+
+.rh-pp-branch-card:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+  border-color: #0284c7;
+  box-shadow: 0 20px 40px -5px rgba(2, 132, 199, 0.28);
+}
+
+.rh-pp-branch-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.rh-pp-branch-title {
+  font-family: var(--rh-font-heading, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.15;
+}
+
+.rh-pp-branch-desc {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+/* Positioning of Branching Cards */
+.rh-pp-card-tl {
+  top: 15px;
+  left: -40px;
+}
+
+.rh-pp-card-bl {
+  bottom: 35px;
+  left: -40px;
+}
+
+.rh-pp-card-tr {
+  top: 40px;
+  right: -40px;
+}
+
+.rh-pp-card-br {
+  bottom: 20px;
+  right: -40px;
+}
+
+/* Floating Micro-Animations */
+.animate-float-1 {
+  animation: floatCard1 4.5s ease-in-out infinite alternate;
+}
+
+.animate-float-2 {
+  animation: floatCard2 5s ease-in-out infinite alternate -2s;
+}
+
+@keyframes floatCard1 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes floatCard2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Slide Up Fade In Transition */
+.animate-slide-up {
+  animation: slideUpFade 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PhonePe-Style Interactive Slider Pill Indicators */
+.rh-pp-slider-nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.rh-pp-slider-pills {
+  display: inline-flex;
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  padding: 0.4rem;
+  gap: 0.35rem;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.1);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.rh-pp-pill-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.rh-pp-pill-step {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.rh-pp-pill-btn:hover {
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.05);
+}
+
+.rh-pp-pill-btn.active {
+  background: #0284c7;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+.rh-pp-pill-btn.active .rh-pp-pill-step {
+  background: #ffffff;
+  color: #0284c7;
+}
+
+.rh-pp-pill-progress {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  animation: pillProgress 5.5s linear infinite;
+}
+
+@keyframes pillProgress {
+  from { width: 0%; }
+  to { width: 80%; }
+}
+
+/* Responsive Behavior */
+@media (max-width: 1199px) {
+  .rh-pp-card-tl { left: -10px; }
+  .rh-pp-card-bl { left: -10px; }
+  .rh-pp-card-tr { right: -10px; }
+  .rh-pp-card-br { right: -10px; }
+  .rh-pp-branch-card { width: 180px; padding: 0.5rem 0.75rem; }
+}
+
+@media (max-width: 991px) {
+  .rh-pp-hero-headline {
+    font-size: 2.3rem;
+  }
+  .rh-pp-phone-stage {
+    padding: 1.5rem 0;
+  }
+  .rh-pp-branch-card {
+    position: static;
+    width: 100%;
+    margin-top: 0.75rem;
+    animation: none !important;
+  }
+  .rh-pp-slider-pills {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .rh-phonepe-hero {
+    padding: 2.5rem 0 2rem 0;
+  }
+  .rh-pp-hero-headline {
+    font-size: 1.95rem;
+  }
+  .rh-pp-phone-frame {
+    width: 250px;
+    border-width: 7px;
+  }
+  .rh-pp-phone-screen {
+    min-height: 420px;
+  }
+  .rh-pp-pill-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+  }
+}

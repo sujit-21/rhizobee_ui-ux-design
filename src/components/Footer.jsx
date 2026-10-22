@@ -140,8 +140,35 @@ export default function Footer({ onOpenConsultation }) {
           </div>
         </div>
 
+        {/* Official Trust & Compliance Badges Strip */}
+        <div className="py-4 my-2 border-top border-bottom border-secondary border-opacity-25">
+          <div className="row g-3 align-items-center justify-content-between text-center text-md-start">
+            <div className="col-lg-6">
+              <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-3">
+                <span className="badge bg-white text-dark border px-2.5 py-1.5 d-inline-flex align-items-center gap-1.5 shadow-sm">
+                  <i className="bi bi-shield-lock-fill text-primary"></i> PCI-DSS v4.0
+                </span>
+                <span className="badge bg-white text-dark border px-2.5 py-1.5 d-inline-flex align-items-center gap-1.5 shadow-sm">
+                  <i className="bi bi-patch-check-fill text-success"></i> ISO 27001
+                </span>
+                <span className="badge bg-white text-dark border px-2.5 py-1.5 d-inline-flex align-items-center gap-1.5 shadow-sm">
+                  <i className="bi bi-lock-fill text-warning"></i> 256-Bit SSL
+                </span>
+                <span className="badge bg-white text-dark border px-2.5 py-1.5 d-inline-flex align-items-center gap-1.5 shadow-sm">
+                  <i className="bi bi-bank2 text-info"></i> RBI Compliant Rails
+                </span>
+              </div>
+            </div>
+            <div className="col-lg-6 text-center text-lg-end">
+              <span className="small text-secondary" style={{ fontSize: '0.73rem' }}>
+                Regulated banking rails • Instant T+0 / T+1 settlements • 24/7 Merchant Support
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="pt-4 border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-secondary small">
+        <div className="pt-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-secondary small">
           <div>
             © {currentYear} Rhizobee Innovations Private Limited. All rights reserved.
           </div>

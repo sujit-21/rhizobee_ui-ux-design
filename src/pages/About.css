@@ -13,22 +13,31 @@
   border: 1px solid #e2e8f0;
   border-radius: 20px;
   padding: 2.25rem 1.75rem;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease, border-color 0.25s ease;
   height: 100%;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transform-style: preserve-3d;
 }
 
 .rh-pillar-card:hover {
-  transform: translateY(-5px);
-  border-color: #7dd3fc;
-  box-shadow: 0 16px 32px -4px rgba(2, 132, 199, 0.14);
+  border-color: #38bdf8;
+  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.16);
 }
 
 .rh-stat-badge-box {
   background: #ffffff;
-  border: 1px solid #bae6fd;
-  border-radius: 16px;
-  padding: 1.5rem;
+  border: 1.5px solid #bae6fd;
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.06);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08);
+  transition: all 0.3s ease;
 }
+
+.rh-stat-badge-box:hover {
+  transform: translateY(-4px);
+  border-color: #0284c7;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.16);
+}
+
+.xx-small { font-size: 0.72rem; }

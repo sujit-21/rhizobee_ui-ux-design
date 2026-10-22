@@ -115,18 +115,22 @@ export default function Navbar({ onOpenConsultation }) {
             </nav>
 
             {/* Right Action Buttons */}
-            <div className="d-none d-lg-flex align-items-center gap-3">
+            <div className="d-none d-lg-flex align-items-center gap-2.5">
               <a 
-                href="mailto:info@rhizobee.com" 
-                className="text-secondary small fw-medium d-flex align-items-center gap-1 text-decoration-none hover-primary"
+                href="https://www.zoompe.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-outline-secondary d-flex align-items-center gap-1.5 px-3 py-2 rounded-pill fw-semibold"
+                style={{ fontSize: '0.82rem', borderColor: '#cbd5e1', color: '#0f172a' }}
               >
-                <i className="bi bi-envelope text-primary"></i> info@rhizobee.com
+                <i className="bi bi-person-lock text-primary"></i>
+                <span>Merchant Portal</span>
               </a>
 
               <button 
                 onClick={() => onOpenConsultation('payment-gateway')}
                 className="btn-rh-primary"
-                style={{ padding: '0.55rem 1.4rem', fontSize: '0.88rem' }}
+                style={{ padding: '0.55rem 1.35rem', fontSize: '0.86rem' }}
               >
                 <i className="bi bi-lightning-charge-fill text-warning"></i> Get in Touch
               </button>
@@ -236,6 +240,16 @@ export default function Navbar({ onOpenConsultation }) {
             </div>
 
             <div className="mt-4 pt-3 border-top border-secondary border-opacity-25">
+              <a 
+                href="https://www.zoompe.in" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-outline-primary w-100 justify-content-center d-flex align-items-center gap-2 mb-2 rounded-pill fw-semibold"
+                style={{ fontSize: '0.85rem' }}
+              >
+                <i className="bi bi-person-lock"></i> Merchant Portal Sign In
+              </a>
+
               <button 
                 onClick={() => {
                   setMobileMenuOpen(false);

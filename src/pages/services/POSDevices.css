@@ -1,83 +1,307 @@
-/* POS Devices Dedicated Stylesheet - Light Blue & White Corporate Design */
+/* POS Devices Dedicated Stylesheet - Interactive 3D Simulator & Light Blue Corporate Theme */
 .rh-pos-hero {
   position: relative;
-  padding: 5rem 0 4rem 0;
-  background: radial-gradient(circle at 70% 30%, rgba(14, 165, 233, 0.14) 0%, transparent 55%),
-              radial-gradient(circle at 20% 70%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+  padding: 4.5rem 0 4rem 0;
+  background: radial-gradient(circle at 75% 25%, rgba(14, 165, 233, 0.16) 0%, transparent 60%),
+              radial-gradient(circle at 15% 75%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
               linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
   overflow: hidden;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.rh-pos-terminal {
-  background: #ffffff;
-  border: 1px solid #bae6fd;
-  border-radius: 28px;
-  padding: 2rem;
-  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
-  position: relative;
+.rh-hero-title {
+  font-family: var(--rh-font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
 }
 
-.rh-pos-screen {
-  background: #f8fbff;
-  border: 2px solid #cbd5e1;
-  border-radius: 16px;
-  padding: 1.25rem;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+/* Interactive Simulator Container */
+.rh-pos-simulator-container {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.rh-pos-interactive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  color: #0284c7;
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.1);
+  margin-bottom: 1rem;
+}
+
+.rh-live-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: liveBlink 1.5s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* POS Device Chassis */
+.rh-pos-device-body {
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+  border: 3px solid #cbd5e1;
+  border-radius: 36px;
+  padding: 1.5rem 1.4rem 1.25rem 1.4rem;
+  box-shadow: 
+    0 25px 60px -15px rgba(2, 132, 199, 0.22),
+    0 10px 25px rgba(15, 23, 42, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  position: relative;
+  transform: rotateX(4deg);
+  transition: transform 0.3s ease;
+}
+
+.rh-pos-device-body:hover {
+  transform: rotateX(0deg) translateY(-4px);
+}
+
+/* Thermal Printer Housing */
+.rh-pos-printer-housing {
+  position: relative;
+  margin-bottom: 0.75rem;
+  min-height: 28px;
+}
+
+.rh-pos-printer-slit {
+  width: 140px;
+  height: 7px;
+  background: #334155;
+  border-radius: 4px;
+  margin: 0 auto;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.rh-thermal-receipt-slip {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #ffffff;
+  color: #1e293b;
+  padding: 0.85rem;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+  z-index: 20;
+}
+
+.animate-receipt-drop {
+  animation: receiptSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes receiptSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px) scaleY(0.4);
+    transform-origin: top center;
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scaleY(1);
+    transform-origin: top center;
+  }
+}
+
+/* POS Touchscreen */
+.rh-pos-screen-panel {
+  background: #0f172a;
+  border: 2px solid #1e293b;
+  border-radius: 20px;
+  padding: 1.15rem;
   min-height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.rh-pos-printer-slot {
-  width: 120px;
-  height: 6px;
-  background: #94a3b8;
-  border-radius: 3px;
-  margin: 0 auto 1.25rem auto;
+  justify-content: center;
   position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6);
 }
 
-.rh-receipt-paper {
+.rh-pos-screen-panel.approved {
+  background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: #86efac;
+}
+
+.rh-pos-screen-panel.idle {
   background: #ffffff;
-  color: #0f172a;
-  padding: 1rem;
-  font-family: 'Space Grotesk', monospace;
-  font-size: 0.72rem;
-  border-radius: 6px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
-  animation: printPaper 1s ease-out forwards;
-  max-width: 220px;
+  border-color: #e2e8f0;
+}
+
+.rh-screen-logo-badge {
+  display: inline-block;
+  background: #f0f7ff;
+  color: #0284c7;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #bae6fd;
+}
+
+.rh-screen-sale-val {
+  font-size: 1.85rem;
+  line-height: 1;
+  font-family: var(--rh-font-heading, sans-serif);
+}
+
+.rh-screen-nfc-pulse {
+  background: linear-gradient(180deg, #f0f7ff 0%, #e0f2fe 100%);
+  border: 2px dashed #0284c7;
+  border-radius: 14px;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.rh-screen-nfc-pulse:hover {
+  background: #dbeafe;
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+}
+
+.rh-nfc-signal-icon {
+  font-size: 1.6rem;
+  color: #0284c7;
+  display: inline-block;
+  transform: rotate(90deg);
+  animation: nfcPing 2s infinite ease-in-out;
+}
+
+@keyframes nfcPing {
+  0%, 100% { opacity: 0.7; transform: rotate(90deg) scale(1); }
+  50% { opacity: 1; transform: rotate(90deg) scale(1.15); }
+}
+
+.rh-approved-check-ring {
+  width: 50px;
+  height: 50px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
   margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes printPaper {
-  0% { transform: translateY(-30px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+@keyframes popIn {
+  from { transform: scale(0.4); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.rh-nfc-tap-zone {
-  border: 2px dashed rgba(2, 132, 199, 0.4);
+/* POS Hardware Base */
+.rh-pos-hardware-base {
+  margin-top: 0.9rem;
+  text-align: center;
+}
+
+.rh-pos-card-slot-indicator {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #e2e8f0;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  border-top: 2px solid #94a3b8;
+}
+
+/* Floating Contactless Smart Card */
+.rh-floating-smart-card {
+  position: absolute;
+  top: 40%;
+  right: -30px;
+  width: 200px;
+  height: 125px;
   border-radius: 14px;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
-  transition: all 0.2s ease;
-  background: #f0f7ff;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+  z-index: 30;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(-10deg) translateY(-20px);
 }
 
-.rh-nfc-tap-zone:hover {
-  background: #e0f2fe;
-  border-color: #0284c7;
+.rh-floating-smart-card:hover {
+  transform: rotate(0deg) scale(1.08) translateY(-30px);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.35);
 }
 
-.rh-card-swipe-badge {
-  background: #e0f2fe;
-  color: #0284c7;
-  border: 1px solid #bae6fd;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+.rh-floating-smart-card.card-tapping {
+  animation: cardTapAnim 0.8s ease-in-out forwards;
+}
+
+@keyframes cardTapAnim {
+  0% { transform: rotate(-10deg) translateY(-20px); }
+  50% { transform: rotate(0deg) translate(-100px, 30px) scale(0.95); }
+  100% { transform: rotate(-10deg) translateY(-20px); }
+}
+
+/* Card Variations */
+.rh-floating-smart-card.rupay {
+  background: linear-gradient(135deg, #0284c7 0%, #1e1b4b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.rh-floating-smart-card.visa {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.rh-floating-smart-card.mastercard {
+  background: linear-gradient(135deg, #b91c1c 0%, #f97316 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.rh-card-chip {
+  width: 24px;
+  height: 18px;
+  background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+  border-radius: 4px;
+  border: 1px solid #713f12;
+}
+
+.rh-card-number {
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+}
+
+/* Utilities */
+.xx-small { font-size: 0.65rem; }
+.x-small { font-size: 0.75rem; }
+
+@media (max-width: 991px) {
+  .rh-floating-smart-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1.5rem auto 0 auto;
+    transform: none;
+  }
 }

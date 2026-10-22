@@ -104,8 +104,15 @@ export default function Services({ onOpenConsultation }) {
           <div className="row g-4">
             {filteredServices.map(service => (
               <div key={service.id} className="col-lg-4 col-md-6">
-                <div className="rh-service-card-hub">
-                  <div>
+                <div 
+                  className="rh-service-card-hub"
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                  }}
+                >
+                  <div className="position-relative z-2">
                     <div className="d-flex justify-content-between align-items-center mb-3">
                       <div 
                         className="rh-dropdown-icon" 

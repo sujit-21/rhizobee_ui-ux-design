@@ -101,7 +101,18 @@ export default function Solutions({ onOpenConsultation }) {
           <div className="row g-4">
             {packages.map((pkg, idx) => (
               <div key={idx} className="col-lg-6">
-                <div className={`rh-solution-package-card ${pkg.featured ? 'featured' : ''}`}>
+                <div 
+                  className={`rh-solution-package-card ${pkg.featured ? 'featured' : ''}`}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    e.currentTarget.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-5px)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'none';
+                  }}
+                >
                   <div>
                     <div className="d-flex justify-content-between align-items-center mb-3">
                       <h3 className="fs-4 fw-bold text-dark mb-0">{pkg.title}</h3>

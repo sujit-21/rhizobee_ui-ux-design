@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { servicesList } from '../data/servicesData';
 import PartnerMarquee from '../components/PartnerMarquee';
+import ActualHero from '../components/ActualHero';
+import CategoryCards from '../components/CategoryCards';
+import TrustStatsStrip from '../components/TrustStatsStrip';
+import SecurityCertifications from '../components/SecurityCertifications';
+import WhatWeDoShowcase from '../components/WhatWeDoShowcase';
 import './Home.css';
 
 export default function Home({ onOpenConsultation }) {
@@ -77,152 +81,20 @@ export default function Home({ onOpenConsultation }) {
 
   return (
     <div className="rh-home-page">
-      {/* Hero Section */}
-      <section className="rh-home-hero position-relative">
-        <div className="rh-hero-orb-blue"></div>
-        <div className="rh-hero-orb-gold"></div>
+      {/* Modern Centered Hero with 3D Stage */}
+      <ActualHero onOpenConsultation={onOpenConsultation} />
 
-        <div className="container position-relative">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-7">
-              <span className="rh-badge rh-badge-blue mb-3">
-                <span className="rh-pulse-dot me-1"></span> Fintech & Digital Payment Solutions
-              </span>
+      {/* 4 Pillar Category Cards */}
+      <CategoryCards />
 
-              <h1 className="display-4 fw-bold text-dark mb-4 leading-tight">
-                Secure payments. <br />
-                <span className="rh-gradient-text">Smart solutions.</span>
-              </h1>
-
-              <p className="lead text-secondary mb-4 leading-relaxed" style={{ maxWidth: '620px' }}>
-                Rhizobee Innovations equips small business owners, SMEs, MSMEs, enterprises, and corporates 
-                with secure, scalable digital payment technology — payment gateway, QR, soundbox, POS, 
-                and PPI wallet solutions, delivered through our partnerships with leading banks and payment aggregators.
-              </p>
-
-              <div className="d-flex flex-wrap gap-3 mb-5">
-                <button 
-                  onClick={() => onOpenConsultation('payment-gateway')}
-                  className="btn-rh-primary px-4 py-3"
-                >
-                  <span>Talk to Our Team</span>
-                  <i className="bi bi-arrow-right"></i>
-                </button>
-                <Link to="/services" className="btn-rh-outline px-4 py-3">
-                  <span>Explore Services</span>
-                  <i className="bi bi-grid"></i>
-                </Link>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="d-flex flex-wrap gap-4 text-secondary small pt-2 border-top border-light-subtle">
-                <div className="d-flex align-items-center gap-2">
-                  <i className="bi bi-shield-check text-primary fs-5"></i>
-                  <span className="text-dark fw-semibold">Secure & Reliable</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <i className="bi bi-lightning-charge-fill text-warning fs-5"></i>
-                  <span className="text-dark fw-semibold">Fast & Seamless</span>
-                </div>
-                <div className="d-flex align-items-center gap-2">
-                  <i className="bi bi-graph-up-arrow text-success fs-5"></i>
-                  <span className="text-dark fw-semibold">Built for Growth</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Hero Right Visual: Mark Card + Quick Services + Live Activity */}
-            <div className="col-lg-5">
-              <div className="rh-hero-interactive-card text-center">
-                <img 
-                  src="/images/rhizobee-icon.png" 
-                  alt="Rhizobee Innovations" 
-                  height="160" 
-                  className="mb-4 animate-float"
-                  style={{ filter: 'drop-shadow(0 15px 30px rgba(2, 132, 199, 0.25))' }}
-                />
-
-                <div className="row g-2 mb-3">
-                  <div className="col-6">
-                    <Link to="/services/payment-gateway" className="rh-service-chip d-block text-decoration-none">
-                      <i className="bi bi-credit-card-2-front text-primary me-1"></i> Payment Gateway
-                    </Link>
-                  </div>
-                  <div className="col-6">
-                    <Link to="/services/qr-code" className="rh-service-chip d-block text-decoration-none">
-                      <i className="bi bi-qr-code text-info me-1"></i> QR Code Payments
-                    </Link>
-                  </div>
-                  <div className="col-6">
-                    <Link to="/services/soundbox" className="rh-service-chip d-block text-decoration-none">
-                      <i className="bi bi-speaker text-warning me-1"></i> Soundbox 4G
-                    </Link>
-                  </div>
-                  <div className="col-6">
-                    <Link to="/services/pos-devices" className="rh-service-chip d-block text-decoration-none">
-                      <i className="bi bi-calculator text-success me-1"></i> POS Devices
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Enterprise Scale & Trust Metrics Strip */}
+      <TrustStatsStrip />
 
       {/* Payment Partners Marquee */}
       <PartnerMarquee />
 
-      {/* Featured Services Showcase Grid */}
-      <section className="py-5" style={{ background: '#f8fbff' }}>
-        <div className="container py-4">
-          <div className="rh-section-header">
-            <span className="rh-badge rh-badge-blue mb-2">Our Solutions</span>
-            <h2>Payment Solutions Built for Every Counter & Checkout</h2>
-            <p>From instant UPI voice announcements to enterprise developer APIs, explore our specialized services.</p>
-          </div>
-
-          <div className="row g-4">
-            {servicesList.slice(0, 6).map(service => (
-              <div key={service.id} className="col-lg-4 col-md-6">
-                <div className="rh-card p-4 h-100 d-flex flex-column justify-content-between">
-                  <div>
-                    <div className="d-flex justify-content-between align-items-center mb-3">
-                      <div 
-                        className="rh-feature-icon-box"
-                        style={{ color: service.color, background: `${service.color}15`, border: `1px solid ${service.color}35` }}
-                      >
-                        <i className={`bi ${service.icon}`}></i>
-                      </div>
-                      <span className="badge small px-2.5 py-1" style={{ background: '#e0f2fe', color: '#0284c7', border: '1px solid #bae6fd' }}>
-                        {service.badge}
-                      </span>
-                    </div>
-
-                    <h4 className="fs-5 fw-bold text-dark mb-2">{service.title}</h4>
-                    <p className="text-secondary small mb-3 leading-relaxed">
-                      {service.shortDesc}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-top border-light-subtle d-flex align-items-center">
-                    <Link to={service.path} className="small text-primary fw-bold text-decoration-none d-flex align-items-center gap-1">
-                      <span>More Details</span> <i className="bi bi-arrow-right"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-5">
-            <Link to="/services" className="btn-rh-primary px-5 py-3">
-              <span>View All 9 Payment Services</span>
-              <i className="bi bi-grid-3x3-gap"></i>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* What We Do - Sticky Stacking Cards Animation Showcase */}
+      <WhatWeDoShowcase onOpenConsultation={onOpenConsultation} />
 
       {/* Introducing Zoompe Feature Banner */}
       <section className="py-5" style={{ background: '#ffffff' }}>
@@ -358,6 +230,9 @@ export default function Home({ onOpenConsultation }) {
           </div>
         </div>
       </section>
+
+      {/* Enterprise Security & Compliance Certifications */}
+      <SecurityCertifications />
 
       {/* Frequently Asked Questions */}
       <section className="py-5" style={{ background: '#ffffff' }}>

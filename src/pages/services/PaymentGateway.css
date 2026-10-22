@@ -1,4 +1,4 @@
-/* Payment Gateway Stylesheet - Light Blue & White Official Corporate Design */
+/* Payment Gateway Stylesheet - Interactive Circuit Pipeline & Light Blue Theme */
 .rh-pg-hero {
   position: relative;
   padding: 5rem 0 4rem 0;
@@ -19,54 +19,108 @@
   pointer-events: none;
 }
 
-.rh-pg-checkout-box {
+/* Interactive Pipeline Card */
+.rh-pipeline-card {
   background: #ffffff;
   border: 1px solid #bae6fd;
-  border-radius: 20px;
-  padding: 1.75rem;
-  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
-  transition: all 0.3s ease;
+  border-radius: 28px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.12), 0 4px 16px rgba(15, 23, 42, 0.04);
 }
 
-.rh-pg-tab-btn {
+.rh-nodes-row {
+  position: relative;
+}
+
+/* Pipeline Node */
+.rh-pipeline-node {
+  background: #f8fbff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 1.25rem 0.75rem;
+  height: 100%;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.rh-pipeline-node:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
+  border-color: #7dd3fc;
+}
+
+.rh-pipeline-node.active {
+  border-color: #0284c7;
+  background: #e0f2fe;
+  box-shadow: 0 0 25px rgba(2, 132, 199, 0.35);
+  transform: translateY(-6px) scale(1.02);
+}
+
+.rh-pipeline-node.passed {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.rh-node-icon-circle {
+  width: 56px;
+  height: 56px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #475569;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 0.6rem 0.85rem;
-  transition: all 0.2s ease;
+  border: 2px solid #bae6fd;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-}
-
-.rh-pg-tab-btn:hover {
-  background: #f0f7ff;
-  border-color: #bae6fd;
   color: #0284c7;
-}
-
-.rh-pg-tab-btn.active {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  color: #ffffff !important;
-  border-color: #0284c7;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
-}
-
-.rh-settlement-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.5rem;
+  position: relative;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
 }
 
-.rh-settlement-card.selected {
-  border-color: #0284c7;
-  background: #f0f7ff;
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
+.rh-pipeline-node.active .rh-node-icon-circle {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  animation: nodePulse 1s infinite alternate;
 }
+
+.rh-pipeline-node.passed .rh-node-icon-circle {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+@keyframes nodePulse {
+  from { transform: scale(1); box-shadow: 0 0 10px rgba(2, 132, 199, 0.4); }
+  to { transform: scale(1.12); box-shadow: 0 0 25px rgba(2, 132, 199, 0.7); }
+}
+
+.rh-node-tick {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  background: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  border: 2px solid #ffffff;
+}
+
+.rh-live-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: liveBlink 1.5s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.xx-small { font-size: 0.68rem; }
+.x-small { font-size: 0.78rem; }

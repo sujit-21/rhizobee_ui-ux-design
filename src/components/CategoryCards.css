@@ -1,0 +1,102 @@
+/* PhonePe Exact Category Cards Styles */
+
+.rh-phonepe-categories-section {
+  background: #f8fbff;
+  padding: 3.5rem 0 4rem 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.rh-pp-cat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 2.25rem 1.75rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.rh-pp-cat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+.rh-pp-cat-card:hover::before {
+  left: 150%;
+}
+
+.rh-pp-cat-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #38bdf8;
+  box-shadow: 0 22px 45px -8px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+.rh-pp-cat-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rh-pp-cat-card:hover .rh-pp-cat-illustration {
+  transform: scale(1.12) translateY(-4px);
+}
+
+.rh-pp-cat-body {
+  flex: 1;
+}
+
+.rh-pp-cat-title {
+  font-family: var(--rh-font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1e1b4b; /* PhonePe Deep Purple/Slate */
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.rh-pp-cat-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+/* Bottom Right Arrow */
+.rh-pp-cat-arrow {
+  align-self: flex-end;
+  font-size: 1.4rem;
+  color: #4338ca; /* PhonePe Deep Purple */
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.rh-pp-cat-card:hover .rh-pp-cat-arrow {
+  color: #0284c7;
+  transform: translateX(6px);
+}
+
+@media (max-width: 991px) {
+  .rh-pp-cat-card {
+    min-height: 280px;
+    padding: 1.75rem 1.25rem 1.25rem 1.25rem;
+  }
+  .rh-pp-cat-title {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,80 @@
+/* Trust and Scale Metrics Strip Styles */
+
+.rh-stats-strip-section {
+  position: relative;
+  margin-top: -2.5rem;
+  margin-bottom: 2rem;
+  z-index: 12;
+}
+
+.rh-stats-glass-card {
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  border-radius: 24px;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.rh-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: 0.5rem 0.25rem;
+}
+
+.rh-stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.rh-stat-value {
+  font-family: var(--rh-font-heading, sans-serif);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  line-height: 1.15;
+}
+
+.rh-stat-label {
+  font-weight: 700;
+  color: #334155;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.rh-stat-subtext {
+  font-size: 0.73rem;
+  color: #64748b;
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+@media (max-width: 991px) {
+  .rh-stats-strip-section {
+    margin-top: 1rem;
+  }
+  .rh-stats-glass-card {
+    padding: 1.25rem;
+  }
+  .rh-stat-item {
+    gap: 0.75rem;
+  }
+  .rh-stat-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+  .rh-stat-value {
+    font-size: 1.25rem;
+  }
+  .rh-stat-label {
+    font-size: 0.78rem;
+  }
+}

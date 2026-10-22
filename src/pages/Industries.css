@@ -8,18 +8,43 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
+.rh-ind-pill {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.45rem 1.25rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.rh-ind-pill:hover {
+  background: #f0f7ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+.rh-ind-pill.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+}
+
 .rh-industry-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  padding: 2.25rem;
-  transition: all 0.3s ease;
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease, border-color 0.25s ease;
   height: 100%;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transform-style: preserve-3d;
 }
 
 .rh-industry-card:hover {
-  transform: translateY(-5px);
-  border-color: #7dd3fc;
-  box-shadow: 0 16px 32px -4px rgba(2, 132, 199, 0.14);
+  border-color: #38bdf8;
+  box-shadow: 0 20px 40px -10px rgba(2, 132, 199, 0.18);
 }

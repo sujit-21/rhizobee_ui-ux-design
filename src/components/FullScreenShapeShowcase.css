@@ -1,0 +1,426 @@
+/* Full-Screen Cinematic FinTech Stage - Apple & Stripe Keynote Level Aesthetic */
+
+.rh-cinematic-stage-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 7.5rem 0 7rem 0;
+  background: radial-gradient(circle at 50% 25%, #0c1736 0%, #030712 85%);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cyber Grid Backdrop */
+.rh-cyber-grid-backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cosmic Ambient Glow Bloom */
+.rh-cosmic-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+  transition: all 0.6s ease;
+}
+
+.glow-1 {
+  top: -100px;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  background: var(--active-glow, rgba(14, 165, 233, 0.45));
+}
+
+.glow-2 {
+  bottom: -80px;
+  left: 10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(99, 102, 241, 0.25);
+}
+
+/* Futuristic Pill Badge */
+.rh-futuristic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #38bdf8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.rh-neon-beacon {
+  width: 8px;
+  height: 8px;
+  background: #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #38bdf8;
+  animation: beaconPulse 1.5s infinite;
+}
+
+@keyframes beaconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Cinematic Heading */
+.rh-cinematic-heading {
+  font-family: var(--rh-font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.rh-neon-gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dimension Switcher Tabs */
+.rh-dimension-tabs-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px;
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.rh-dim-tab-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rh-dim-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.rh-dim-tab-btn.active {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px var(--active-glow, rgba(14, 165, 233, 0.35));
+}
+
+.rh-tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64748b;
+  transition: all 0.3s ease;
+}
+
+.rh-dim-tab-btn.active .rh-tab-dot {
+  background: var(--active-accent, #38bdf8);
+  box-shadow: 0 0 10px var(--active-accent, #38bdf8);
+}
+
+/* Left Column Content */
+.rh-dim-badge {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--active-accent, #38bdf8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  padding: 0.35rem 0.95rem;
+  border-radius: 6px;
+}
+
+.rh-dim-title {
+  font-family: var(--rh-font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.rh-dim-desc {
+  font-size: 1.05rem;
+}
+
+/* Specs Grid */
+.rh-dim-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.rh-dim-spec-cell {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 0.85rem;
+  backdrop-filter: blur(8px);
+}
+
+.rh-spec-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.rh-spec-lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Action Buttons */
+.btn-rh-cinematic-primary {
+  background: linear-gradient(135deg, var(--active-accent, #0284c7) 0%, #4338ca 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 10px 25px var(--active-glow, rgba(14, 165, 233, 0.35));
+  transition: all 0.3s ease;
+}
+
+.btn-rh-cinematic-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px var(--active-glow, rgba(14, 165, 233, 0.5));
+  color: #ffffff;
+}
+
+.btn-rh-cinematic-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-rh-cinematic-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ========================================================
+   RIGHT COLUMN: 3D ISOMETRIC PODIUM & FLOATING SPATIAL BADGES
+======================================================== */
+
+.rh-cinematic-3d-podium {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+/* Concentric Neon Rings */
+.rh-podium-glow-ambient {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 380px;
+  background: radial-gradient(ellipse at center, var(--active-glow, rgba(14, 165, 233, 0.35)) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.rh-podium-neon-rings {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 120px;
+  pointer-events: none;
+}
+
+.rh-pedestal-ring {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1.5px solid var(--active-accent, #38bdf8);
+}
+
+.p-ring-1 { width: 90%; height: 80px; opacity: 0.6; }
+.p-ring-2 { width: 70%; height: 60px; opacity: 0.4; }
+.p-ring-3 { width: 50%; height: 40px; opacity: 0.25; }
+
+/* 3D Image Canvas */
+.rh-podium-image-frame {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: clamp(340px, 46vh, 480px);
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 60px -15px rgba(0, 0, 0, 0.7),
+    0 0 40px var(--active-glow, rgba(14, 165, 233, 0.25));
+  background: #0f172a;
+}
+
+.rh-podium-render-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+  display: block;
+}
+
+.animate-cinematic-reveal {
+  animation: cinematicZoomIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cinematicZoomIn {
+  from { opacity: 0.2; transform: scale(0.94); filter: blur(6px); }
+  to { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.rh-podium-light-sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: sweep 4s infinite ease-in-out;
+}
+
+@keyframes sweep {
+  0% { left: -100%; }
+  35%, 100% { left: 160%; }
+}
+
+/* Floating Spatial Glass Badges (Apple Vision Pro style) */
+.rh-floating-spatial-badge {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  padding: 0.85rem 1.25rem;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  pointer-events: none;
+  text-align: left;
+}
+
+.badge-top-right {
+  top: -20px;
+  right: -25px;
+}
+
+.badge-bottom-left {
+  bottom: -20px;
+  left: -25px;
+}
+
+.rh-spatial-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite alternate;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@keyframes floatReverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(12px) rotate(-2deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.xx-small { font-size: 0.7rem; }
+
+@media (max-width: 991px) {
+  .rh-cinematic-stage-section {
+    padding: 4.5rem 0 4rem 0;
+  }
+  .badge-top-right {
+    top: -10px;
+    right: 0;
+  }
+  .badge-bottom-left {
+    bottom: -10px;
+    left: 0;
+  }
+  .rh-dimension-tabs-bar {
+    border-radius: 20px;
+  }
+}

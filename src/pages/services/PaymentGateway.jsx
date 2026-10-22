@@ -1,16 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import confetti from 'canvas-confetti';
 import PartnerMarquee from '../../components/PartnerMarquee';
 import './PaymentGateway.css';
 
 export default function PaymentGateway({ onOpenConsultation }) {
+  const [pipelineStep, setPipelineStep] = useState(0); // 0 = idle, 1, 2, 3, 4 = active steps, 5 = completed
+  const [isRunning, setIsRunning] = useState(false);
+
+  const simulatePipeline = () => {
+    if (isRunning) return;
+    setIsRunning(true);
+    setPipelineStep(1);
+
+    setTimeout(() => setPipelineStep(2), 600);
+    setTimeout(() => setPipelineStep(3), 1200);
+    setTimeout(() => setPipelineStep(4), 1800);
+    setTimeout(() => {
+      setPipelineStep(5);
+      setIsRunning(false);
+      try {
+        confetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { y: 0.65 }
+        });
+      } catch (e) {}
+    }, 2400);
+  };
+
+  const steps = [
+    {
+      id: 1,
+      title: 'Customer Checkout',
+      subtitle: 'UPI / Card / Netbanking',
+      icon: 'bi-phone',
+      latency: '12ms'
+    },
+    {
+      id: 2,
+      title: '256-Bit Tokenizer',
+      subtitle: 'PCI-DSS L1 Vault & Fraud Filter',
+      icon: 'bi-shield-lock',
+      latency: '18ms'
+    },
+    {
+      id: 3,
+      title: 'Rhizobee AI Switch',
+      subtitle: 'Dynamic Multi-Bank Routing',
+      icon: 'bi-cpu',
+      latency: '14ms'
+    },
+    {
+      id: 4,
+      title: 'NPCI / Bank Host',
+      subtitle: 'Multi-Bank Core Settlement',
+      icon: 'bi-bank',
+      latency: '24ms'
+    },
+    {
+      id: 5,
+      title: 'Merchant Credit',
+      subtitle: 'T+0 Instant Ledger Credit',
+      icon: 'bi-check-circle-fill',
+      latency: '68ms Total'
+    }
+  ];
+
   return (
     <div className="rh-payment-gateway-page">
       {/* Hero Section */}
       <section className="rh-pg-hero">
         <div className="rh-pg-glow"></div>
         <div className="container position-relative">
-          {/* Breadcrumb */}
           <div className="rh-breadcrumb justify-content-center">
             <Link to="/"><i className="bi bi-house"></i> Home</Link>
             <i className="bi bi-chevron-right"></i>
@@ -22,7 +84,7 @@ export default function PaymentGateway({ onOpenConsultation }) {
           <div className="row justify-content-center text-center">
             <div className="col-lg-10 col-xl-9">
               <span className="rh-badge rh-badge-blue mb-3">
-                <i className="bi bi-credit-card-2-front-fill"></i> Flagship Gateway
+                <i className="bi bi-credit-card-2-front-fill me-1"></i> Flagship Gateway
               </span>
               <h1 className="rh-hero-title-oneline mb-3">
                 Accept Payments Online with <span className="rh-gradient-text">Zero Friction</span>
@@ -58,10 +120,10 @@ export default function PaymentGateway({ onOpenConsultation }) {
                   onClick={() => onOpenConsultation('payment-gateway')}
                   className="btn-rh-primary px-4 py-3"
                 >
-                  <i className="bi bi-key-fill text-warning"></i> Get API Keys & Onboard
+                  <i className="bi bi-key-fill text-warning me-1"></i> Get API Keys & Onboard
                 </button>
-                <a href="#features" className="btn-rh-outline px-4 py-3">
-                  <i className="bi bi-layers-fill"></i> Technical Specifications
+                <a href="#pipeline" className="btn-rh-outline px-4 py-3">
+                  <i className="bi bi-diagram-3-fill me-1"></i> View Live Transaction Route
                 </a>
               </div>
             </div>
@@ -69,8 +131,80 @@ export default function PaymentGateway({ onOpenConsultation }) {
         </div>
       </section>
 
+      {/* Interactive Animated Transaction Flow & Circuit Pulse Pipeline */}
+      <section className="py-5" style={{ background: '#f0f7ff' }} id="pipeline">
+        <div className="container py-4">
+          <div className="rh-section-header">
+            <span className="rh-badge rh-badge-blue mb-2">Real-Time Routing</span>
+            <h2>Under the Hood: Sub-Second Transaction Journey</h2>
+            <p>Experience how Rhizobee routes, tokenizes, and settles your transactions in under 100 milliseconds.</p>
+          </div>
+
+          <div className="rh-pipeline-card">
+            {/* Pipeline Controls */}
+            <div className="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 pb-3 border-bottom">
+              <div>
+                <span className="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill fw-semibold">
+                  <i className="bi bi-activity me-1 animate-pulse"></i> Live Pipeline Simulator
+                </span>
+                <span className="ms-3 text-secondary small">Click button to send a simulated ₹1,500 checkout pulse</span>
+              </div>
+              <button 
+                className="btn btn-primary rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2 shadow-sm"
+                onClick={simulatePipeline}
+                disabled={isRunning}
+              >
+                <i className={`bi ${isRunning ? 'bi-hourglass-split' : 'bi-play-fill'} fs-5`}></i>
+                <span>{isRunning ? 'Processing Route (68ms)...' : 'Simulate Transaction Route'}</span>
+              </button>
+            </div>
+
+            {/* Circuit Nodes Row */}
+            <div className="row g-3 position-relative rh-nodes-row">
+              {steps.map((s, idx) => {
+                const isActive = pipelineStep === s.id;
+                const isPassed = pipelineStep > s.id;
+                return (
+                  <div key={s.id} className="col-12 col-md">
+                    <div className={`rh-pipeline-node text-center ${isActive ? 'active' : ''} ${isPassed ? 'passed' : ''}`}>
+                      <div className="rh-node-icon-circle mx-auto mb-2">
+                        <i className={`bi ${s.icon} fs-4`}></i>
+                        {isPassed && <span className="rh-node-tick"><i className="bi bi-check"></i></span>}
+                      </div>
+                      <div className="fw-bold text-dark x-small mb-1">{s.title}</div>
+                      <div className="text-secondary xx-small mb-2">{s.subtitle}</div>
+                      <span className={`badge ${isPassed || isActive ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-light text-muted'} rounded-pill xx-small`}>
+                        {s.latency}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Pipeline Status Banner */}
+            <div className="mt-4 p-3 rounded-4 d-flex align-items-center justify-content-between flex-wrap gap-2" style={{ background: '#ffffff', border: '1px solid #bae6fd' }}>
+              <div className="d-flex align-items-center gap-2">
+                <span className="rh-live-dot"></span>
+                <span className="small text-dark fw-semibold">
+                  {pipelineStep === 0 && 'Pipeline Ready: Standby mode with 99.99% multi-bank uptime.'}
+                  {pipelineStep === 1 && 'Step 1/5: Customer initiates ₹1,500 payment via UPI intent.'}
+                  {pipelineStep === 2 && 'Step 2/5: PCI-DSS L1 Tokenizer encrypts payload; AI fraud risk score: 0.01 (Clean).'}
+                  {pipelineStep === 3 && 'Step 3/5: Smart routing directs traffic to primary high-availability bank pipe.'}
+                  {pipelineStep === 4 && 'Step 4/5: NPCI Switch returns status 200 OK confirmation.'}
+                  {pipelineStep === 5 && 'Success: ₹1,500 instant ledger credit completed in 68ms!'}
+                </span>
+              </div>
+              <span className="badge bg-primary text-white rounded-pill px-3 py-1 x-small fw-bold">
+                Direct Switch SLA
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Deep Dive */}
-      <section className="py-5" style={{ background: '#f8fbff' }} id="features">
+      <section className="py-5" style={{ background: '#ffffff' }} id="features">
         <div className="container py-4">
           <div className="rh-section-header">
             <span className="rh-badge rh-badge-blue mb-2">Technical Capabilities</span>
