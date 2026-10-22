@@ -1,0 +1,343 @@
+/* ========================================================
+   Why Merchants & Corporates Choose Us: 3D Rotating Carousel
+   Light Corporate Fintech Aesthetic (Matching Rhizobee Brand)
+   ======================================================== */
+
+.rh-why-choose-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 15%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+              linear-gradient(180deg, #f8fbff 0%, #ffffff 45%, #f1f7fe 100%);
+  color: #0f172a;
+  padding: 85px 0 95px;
+  overflow: hidden;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.relative-z {
+  position: relative;
+  z-index: 10;
+}
+
+/* Background Atmosphere */
+.why-3d-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.why-radial-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.45;
+}
+
+.glow-cyan {
+  top: -120px;
+  left: 20%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+}
+
+.glow-gold {
+  bottom: -150px;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+}
+
+.why-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.7;
+}
+
+/* 3D STAGE & CAROUSEL CONTAINER */
+.why-3d-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1800px;
+  perspective-origin: 50% 42%;
+  margin-top: 15px;
+}
+
+/* Holographic Floor Disc */
+.why-hologram-floor {
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  margin: -450px 0 0 -450px;
+  transform: rotateX(75deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floor-ring {
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.floor-ring-outer {
+  width: 100%;
+  height: 100%;
+  border: 1.5px dashed rgba(2, 132, 199, 0.35);
+  animation: spinSlow 40s linear infinite;
+}
+
+.floor-ring-inner {
+  width: 65%;
+  height: 65%;
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  box-shadow: inset 0 0 50px rgba(2, 132, 199, 0.08);
+}
+
+.floor-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 68%);
+}
+
+@keyframes spinSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 3D Rotating Stage */
+.why-3d-carousel-stage {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: grab;
+}
+
+.why-3d-carousel {
+  position: relative;
+  width: 320px;
+  height: 360px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+/* Individual 3D Card */
+.why-3d-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 350px;
+  margin: -175px 0 0 -160px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 
+    0 16px 36px -8px rgba(15, 23, 42, 0.09),
+    0 4px 12px rgba(2, 132, 199, 0.05);
+  cursor: pointer;
+  transition: 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease;
+  user-select: none;
+}
+
+.why-3d-card:hover,
+.why-3d-card.active-spotlight {
+  border-color: var(--pillar-color, #0284c7);
+  box-shadow: 
+    0 24px 50px -10px rgba(var(--pillar-glow), 0.28),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+  transform: rotateY(var(--card-angle)) translateZ(500px) scale(1.04) !important;
+  background: #ffffff;
+}
+
+/* Card Internal Details */
+.why-3d-ico-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(var(--pillar-glow), 0.1);
+  border: 1px solid rgba(var(--pillar-glow), 0.25);
+  color: var(--pillar-color, #0284c7);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  transition: all 0.3s ease;
+}
+
+.why-3d-card:hover .why-3d-ico-box,
+.why-3d-card.active-spotlight .why-3d-ico-box {
+  background: var(--pillar-color, #0284c7);
+  color: #ffffff;
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 6px 18px rgba(var(--pillar-glow), 0.35);
+}
+
+.why-3d-micro-badge {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 4px 12px;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+
+.why-3d-card:hover .why-3d-micro-badge,
+.why-3d-card.active-spotlight .why-3d-micro-badge {
+  color: var(--pillar-color, #0284c7);
+  border-color: rgba(var(--pillar-glow), 0.35);
+  background: rgba(var(--pillar-glow), 0.08);
+}
+
+.why-3d-card-title {
+  font-family: var(--rh-font-heading, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.why-3d-card-desc {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.why-3d-highlight-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--pillar-color, #0284c7);
+  display: inline-flex;
+  align-items: center;
+}
+
+.why-3d-arrow-btn {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  transition: all 0.25s ease;
+}
+
+.why-3d-card:hover .why-3d-arrow-btn,
+.why-3d-card.active-spotlight .why-3d-arrow-btn {
+  color: var(--pillar-color, #0284c7);
+  transform: translateX(4px);
+}
+
+/* Indicators & Hints */
+.why-dot-pill {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.why-dot-pill.active {
+  width: 24px;
+  border-radius: 999px;
+  background: #0284c7;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.why-3d-hint {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .why-3d-card {
+    width: 270px;
+    height: 315px;
+    margin: -157px 0 0 -135px;
+    padding: 20px 18px;
+  }
+
+  .why-3d-card {
+    transform: rotateY(var(--card-angle)) translateZ(350px) !important;
+  }
+
+  .why-3d-card:hover {
+    transform: rotateY(var(--card-angle)) translateZ(365px) scale(1.02) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .rh-why-choose-section {
+    padding: 60px 0 70px;
+  }
+
+  .why-3d-stage-wrapper {
+    height: 420px;
+    perspective: 1200px;
+  }
+
+  .why-3d-card {
+    width: 240px;
+    height: 295px;
+    margin: -147px 0 0 -120px;
+    padding: 18px 16px;
+    transform: rotateY(var(--card-angle)) translateZ(280px) !important;
+  }
+
+  .why-3d-card:hover {
+    transform: rotateY(var(--card-angle)) translateZ(295px) !important;
+  }
+
+  .why-hologram-floor {
+    width: 550px;
+    height: 550px;
+    margin: -275px 0 0 -275px;
+  }
+
+  .why-3d-card-desc {
+    font-size: 0.78rem;
+    -webkit-line-clamp: 3;
+  }
+}

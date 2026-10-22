@@ -58,14 +58,20 @@ export default function Footer({ onOpenConsultation }) {
 
             <div className="d-flex flex-column gap-2 small text-secondary">
               <div className="d-flex align-items-center gap-2">
+                <i className="bi bi-telephone-fill text-primary"></i>
+                <a href="tel:022-45857049" className="text-secondary text-decoration-none hover-white">
+                  022-4585 7049
+                </a>
+              </div>
+              <div className="d-flex align-items-center gap-2">
                 <i className="bi bi-envelope-fill text-primary"></i>
                 <a href="mailto:info@rhizobee.com" className="text-secondary text-decoration-none hover-white">
                   info@rhizobee.com
                 </a>
               </div>
-              <div className="d-flex align-items-center gap-2">
-                <i className="bi bi-geo-alt-fill text-primary"></i>
-                <span>Registered in India | Pan-India Merchant Operations</span>
+              <div className="d-flex align-items-start gap-2">
+                <i className="bi bi-geo-alt-fill text-primary mt-1"></i>
+                <span>101, Wellington Business Park 2, Andheri Kurla Road, Marol, Andheri East, Mumbai 400059</span>
               </div>
               <div className="d-flex align-items-center gap-2">
                 <i className="bi bi-shield-check text-success"></i>
@@ -170,7 +176,7 @@ export default function Footer({ onOpenConsultation }) {
         {/* Bottom Bar */}
         <div className="pt-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-secondary small">
           <div>
-            © {currentYear} Rhizobee Innovations Private Limited. All rights reserved.
+            © {currentYear} Rhizobee Innovations Private Limited. All rights reserved. · CIN: U72900DL2022PTC393198
           </div>
           
           <div className="d-flex gap-3">

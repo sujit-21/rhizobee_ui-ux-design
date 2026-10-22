@@ -6,51 +6,13 @@ import CategoryCards from '../components/CategoryCards';
 import TrustStatsStrip from '../components/TrustStatsStrip';
 import SecurityCertifications from '../components/SecurityCertifications';
 import WhatWeDoShowcase from '../components/WhatWeDoShowcase';
+import BusinessStagesOrbit from '../components/BusinessStagesOrbit';
+import WhyChooseUs from '../components/WhyChooseUs';
+import ClientTestimonials from '../components/ClientTestimonials';
 import './Home.css';
 
 export default function Home({ onOpenConsultation }) {
-  const [selectedStage, setSelectedStage] = useState('small-business');
   const [activeFaq, setActiveFaq] = useState(0);
-
-  const businessStages = {
-    'small-business': {
-      title: 'Small Business Owners & Kiranas',
-      subtitle: 'Zero hardware hassle with loud payment verification',
-      desc: 'Local grocery shops, cafes, clinics, and service counters that need rapid QR payment acceptance, loud voice alerts in their language, and instant daily settlements to restock inventory.',
-      solutions: ['Soundbox Solutions (4G)', 'Durable Acrylic QR Standees', 'Zoompe Recharge & Bill Portal'],
-      recommendedLink: '/services/soundbox'
-    },
-    'sme': {
-      title: 'SMEs & Growing Retailers',
-      subtitle: 'Modernize counter checkout with smart POS',
-      desc: 'Specialty stores, multi-counter restaurants, boutique apparel, and electronics retail that need contactless card swiping, integrated thermal receipts, and real-time inventory management.',
-      solutions: ['Android Smart POS Terminals', 'Dynamic Billing QR Screens', 'Payment Gateway for Shopify/WooCommerce'],
-      recommendedLink: '/services/pos-devices'
-    },
-    'msme': {
-      title: 'MSMEs & Manufacturers',
-      subtitle: 'Corporate bank transfers and vendor payouts',
-      desc: 'Small and medium manufacturing enterprises, logistics operators, and distributors needing bulk IMPS/NEFT vendor payouts, invoice collection links, and dedicated relationship management.',
-      solutions: ['Switch Unified Payment API', 'Virtual Account Collection', 'Vendor Payout Gateway'],
-      recommendedLink: '/services/switch-api'
-    },
-    'enterprise': {
-      title: 'Large Enterprises & Retail Chains',
-      subtitle: 'Multi-store ERP integration and 99.99% uptime',
-      desc: 'National supermarket chains, department stores, and nationwide franchises requiring centralized multi-terminal reconciliation, automated chargeback resolution, and custom MDR rates.',
-      solutions: ['High-throughput Gateway Switch', 'Multi-terminal POS Fleet Manager', 'Custom ERP Accounting Webhooks'],
-      recommendedLink: '/services/payment-gateway'
-    },
-    'corporates': {
-      title: 'Corporates & Institutions',
-      subtitle: 'Programmatic expense cards and employee gifting',
-      desc: 'Mid to large corporates looking to eliminate manual employee reimbursements with customized prepaid RuPay/Visa corporate fuel and food cards, plus automated festive gift voucher distribution.',
-      solutions: ['PPI Wallet Card Issuance', '500+ Brand Gift Vouchers', 'Bulk Payroll Disbursement API'],
-      recommendedLink: '/services/ppi-wallets'
-    }
-  };
-
-  const currentStage = businessStages[selectedStage];
 
   const faqs = [
     {
@@ -162,77 +124,17 @@ export default function Home({ onOpenConsultation }) {
         </div>
       </section>
 
-      {/* Business Stages Matrix */}
-      <section className="py-5" style={{ background: '#f0f7ff' }}>
-        <div className="container py-4">
-          <div className="rh-section-header">
-            <span className="rh-badge rh-badge-blue mb-2">Custom Fit</span>
-            <h2>Built for Every Stage of Business</h2>
-            <p>From single-counter retail to high-throughput enterprises, we tailor the exact payment mix you need.</p>
-          </div>
+      {/* Business Stages Orbit Theater (Layout B: Circular Rhizobee Ecosystem) */}
+      <BusinessStagesOrbit onOpenConsultation={onOpenConsultation} />
 
-          <div className="row g-4 align-items-center">
-            {/* Stage Selector Tabs */}
-            <div className="col-lg-4">
-              <div className="d-flex flex-column gap-2">
-                {Object.keys(businessStages).map(key => (
-                  <button 
-                    key={key}
-                    onClick={() => setSelectedStage(key)}
-                    className={`rh-stage-tab-btn ${selectedStage === key ? 'active' : ''}`}
-                  >
-                    <span>{businessStages[key].title}</span>
-                    <i className="bi bi-chevron-right small"></i>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Stage Detail Card */}
-            <div className="col-lg-8">
-              <div className="rh-card p-4 p-md-5">
-                <div className="badge small px-3 py-1.5 rounded-pill mb-2" style={{ background: '#e0f2fe', color: '#0284c7', border: '1px solid #bae6fd' }}>
-                  {currentStage.subtitle}
-                </div>
-                <h3 className="text-dark fw-bold fs-3 mb-3">{currentStage.title}</h3>
-                <p className="text-secondary mb-4 leading-relaxed">
-                  {currentStage.desc}
-                </p>
-
-                <div className="p-3 rounded-3 mb-4" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
-                  <div className="text-dark small fw-bold mb-2">Recommended Setup:</div>
-                  <div className="row g-2">
-                    {currentStage.solutions.map((sol, idx) => (
-                      <div key={idx} className="col-md-4">
-                        <div className="small text-dark fw-medium d-flex align-items-center gap-1.5">
-                          <i className="bi bi-check-circle-fill text-success"></i>
-                          <span>{sol}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="d-flex flex-wrap gap-3">
-                  <Link to={currentStage.recommendedLink} className="btn-rh-primary">
-                    <span>Learn More About This Setup</span>
-                    <i className="bi bi-arrow-right"></i>
-                  </Link>
-                  <button 
-                    onClick={() => onOpenConsultation(selectedStage)}
-                    className="btn btn-outline-primary rounded-pill px-4"
-                  >
-                    Get Custom Quote
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Why Merchants & Corporates Choose to Grow with Us (6 Value Pillars) */}
+      <WhyChooseUs />
 
       {/* Enterprise Security & Compliance Certifications */}
       <SecurityCertifications />
+
+      {/* What Our Clients Say About Working with Us (Verified Testimonials) */}
+      <ClientTestimonials />
 
       {/* Frequently Asked Questions */}
       <section className="py-5" style={{ background: '#ffffff' }}>

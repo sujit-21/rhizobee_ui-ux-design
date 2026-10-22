@@ -1,4 +1,8 @@
-/* Exact "What We Do" Styles from Rhizobee Live */
+/* ========================================================
+   What We Do - Sticky Stacking Showcase Stylesheet
+   Enhanced with Concept A (Service Micro-Animations) &
+   Concept B (3D Parallax Tilt & Magnetic Spotlight Glare)
+   ======================================================== */
 
 .services {
   background: #f8fafc;
@@ -75,7 +79,7 @@
   top: calc(96px + var(--i, 0) * 18px);
   z-index: calc(10 + var(--i, 0));
   border-radius: 28px;
-  min-height: 340px;
+  min-height: 350px;
   color: #ffffff;
   background: linear-gradient(135deg, #1e293b, #0f172a);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -86,12 +90,30 @@
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.28);
 }
 
+/* Concept B: Dynamic Mouse Spotlight Glare */
+.hx-slab-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.14),
+    transparent 65%
+  );
+  opacity: var(--spotlight-opacity, 0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+}
+
 .hx-slab-copy {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 48px;
   display: flex;
+  position: relative;
+  z-index: 2;
 }
 
 .hx-slab h3 {
@@ -133,14 +155,27 @@
 }
 
 /* ========================================================
-   RIGHT VISUAL COLUMN (.hx-art) & ROTATING RADAR RINGS
+   RIGHT VISUAL COLUMN (.hx-art) & 3D PARALLAX STAGE (Concept B)
    ======================================================== */
 .hx-art {
   place-items: center;
   display: grid;
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  min-height: 350px;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+.hx-art-stage {
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  display: grid;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.16s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .hx-art[data-tone="0"] {
@@ -158,6 +193,7 @@
   color: #ffffff;
 }
 
+/* Animated Concentric Radar Rings */
 .hx-art::before,
 .hx-art::after {
   content: "";
@@ -167,17 +203,18 @@
   animation: 18s linear infinite hx-spin;
   position: absolute;
   pointer-events: none;
+  transform: translateZ(5px);
 }
 
 .hx-art::before {
   border-style: dashed;
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
 }
 
 .hx-art::after {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   animation-direction: reverse;
 }
 
@@ -187,31 +224,569 @@
   }
 }
 
+/* Central Frosted Glass Showcase Badge with 3D Pop (Concept B) */
 .hx-art-tile {
-  z-index: 1;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  z-index: 2;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 32px;
   place-items: center;
-  width: 108px;
-  height: 108px;
+  width: 136px;
+  height: 136px;
   display: grid;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  transform: translateZ(36px);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .hx-art[data-tone="1"] .hx-art-tile {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-.hx-art-tile svg {
-  stroke: currentColor;
+/* ========================================================
+   CONCEPT A: SERVICE-SPECIFIC MICRO-ANIMATIONS
+   ======================================================== */
+
+.hx-micro-scene {
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  display: grid;
+  position: relative;
+  transform-style: preserve-3d;
 }
 
-.hx-art[data-tone="1"] .hx-art-tile svg {
-  stroke: #0f172a;
+/* Global Micro Floating Badge */
+.micro-badge {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%) translateZ(48px);
+  background: rgba(15, 23, 42, 0.88);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  animation: badge-bob 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badge-bob {
+  0%, 100% {
+    transform: translateX(-50%) translateZ(48px) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateZ(48px) translateY(-4px);
+  }
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+  animation: pulse-ring 1.8s infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+}
+
+/* --------------------------------------------------------
+   1. Payment Gateway Scene (Holographic Card & Shimmer)
+   -------------------------------------------------------- */
+.gateway-scene .holo-card {
+  width: 76px;
+  height: 48px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.holo-card-chip {
+  width: 12px;
+  height: 10px;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  border-radius: 2px;
+  border: 0.5px solid #fef08a;
+}
+
+.holo-card-contactless {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #38bdf8;
+  opacity: 0.85;
+}
+
+.holo-card-dots {
+  font-family: var(--rh-font-mono, monospace);
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #94a3b8;
+}
+
+/* Moving Holographic Diagonal Light Sweep */
+.holo-card-shine {
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  animation: holo-pass 3.2s ease-in-out infinite;
+}
+
+@keyframes holo-pass {
+  0% {
+    transform: translateX(-80%) translateY(-80%);
+  }
+  50%, 100% {
+    transform: translateX(80%) translateY(80%);
+  }
+}
+
+.badge-settled {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+/* --------------------------------------------------------
+   2. QR Code Payments Scene (Laser Scan Beam & Reticles)
+   -------------------------------------------------------- */
+.qr-scene .qr-box {
+  width: 68px;
+  height: 68px;
+  position: relative;
+  place-items: center;
+  display: grid;
+  color: #0f172a;
+}
+
+/* Scanner Corner Target Reticles */
+.qr-reticle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #0f172a;
+  border-style: solid;
+  pointer-events: none;
+}
+.qr-reticle.top-left {
+  top: 0; left: 0;
+  border-width: 2px 0 0 2px;
+}
+.qr-reticle.top-right {
+  top: 0; right: 0;
+  border-width: 2px 2px 0 0;
+}
+.qr-reticle.bottom-left {
+  bottom: 0; left: 0;
+  border-width: 0 0 2px 2px;
+}
+.qr-reticle.bottom-right {
+  bottom: 0; right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Glowing Neon Laser Scanning Beam */
+.qr-laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #0f172a 50%, transparent);
+  box-shadow: 0 0 10px #0f172a;
+  animation: qr-scan-loop 2.4s ease-in-out infinite;
+  z-index: 4;
+}
+
+@keyframes qr-scan-loop {
+  0%, 100% {
+    top: 6px;
+    opacity: 0.3;
+  }
+  50% {
+    top: 56px;
+    opacity: 1;
+  }
+}
+
+/* Expanding Radar Sonar Ring */
+.sonar-ring {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(15, 23, 42, 0.35);
+  animation: sonar-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes sonar-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.badge-scan {
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------
+   3. Soundbox Solutions Scene (Audio Equalizer & Ripples)
+   -------------------------------------------------------- */
+.soundbox-scene .soundbox-speaker {
+  position: relative;
+  place-items: center;
+  display: grid;
+}
+
+.voice-wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(56, 189, 248, 0.6);
+  pointer-events: none;
+  animation: acoustic-ripple 2.5s ease-out infinite;
+}
+
+.voice-wave.wave-1 {
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+
+.voice-wave.wave-2 {
+  width: 86px;
+  height: 86px;
+  animation-delay: 0.9s;
+}
+
+@keyframes acoustic-ripple {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Dynamic Live Equalizer Bars */
+.audio-eq-bars {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 18px;
+}
+
+.eq-bar {
+  width: 2.5px;
+  background: #38bdf8;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+}
+
+.eq-bar.bar-1 { animation: eq-jump 1.1s ease-in-out infinite alternate; }
+.eq-bar.bar-2 { animation: eq-jump 0.8s ease-in-out 0.2s infinite alternate; }
+.eq-bar.bar-3 { animation: eq-jump 1.4s ease-in-out 0.4s infinite alternate; }
+.eq-bar.bar-4 { animation: eq-jump 0.9s ease-in-out 0.1s infinite alternate; }
+.eq-bar.bar-5 { animation: eq-jump 1.2s ease-in-out 0.3s infinite alternate; }
+
+@keyframes eq-jump {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+.badge-voice {
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #e0f2fe;
+}
+
+/* --------------------------------------------------------
+   4. POS Devices Scene (NFC Aura & Thermal Receipt Tape)
+   -------------------------------------------------------- */
+.pos-scene .pos-terminal-screen {
+  position: relative;
+  place-items: center;
+  display: grid;
+}
+
+.nfc-pulse-arc {
+  position: absolute;
+  top: -12px;
+  border-radius: 50% 50% 0 0;
+  border: 1.5px solid transparent;
+  border-top-color: #38bdf8;
+  animation: nfc-wave-out 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.nfc-pulse-arc.arc-1 {
+  width: 32px;
+  height: 16px;
+  animation-delay: 0s;
+}
+
+.nfc-pulse-arc.arc-2 {
+  width: 50px;
+  height: 25px;
+  animation-delay: 0.6s;
+}
+
+@keyframes nfc-wave-out {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(4px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3) translateY(-6px);
+  }
+}
+
+/* Animated Thermal Receipt Tape Sliding Down */
+.receipt-tape {
+  position: absolute;
+  bottom: 6px;
+  width: 44px;
+  background: #ffffff;
+  border-radius: 2px 2px 4px 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: receipt-dispense 4s ease-in-out infinite;
+  border-top: 1.5px dashed #94a3b8;
+}
+
+.receipt-line {
+  height: 2px;
+  background: #cbd5e1;
+  border-radius: 1px;
+}
+.receipt-line.short {
+  width: 60%;
+}
+.receipt-tick {
+  font-size: 6px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.5px;
+  font-family: var(--rh-font-mono, monospace);
+  line-height: 1;
+  margin-top: 2px;
+}
+
+@keyframes receipt-dispense {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------
+   5. PPI Wallet Scene (Card Peek & Floating Coins)
+   -------------------------------------------------------- */
+.ppi-scene .wallet-vault {
+  position: relative;
+  place-items: center;
+  display: grid;
+  color: #0f172a;
+}
+
+/* Metallic Card Sliding Out of Wallet */
+.vault-slider-card {
+  position: absolute;
+  top: -8px;
+  width: 52px;
+  height: 32px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  animation: card-peek-motion 3.5s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+.vault-chip {
+  width: 8px;
+  height: 6px;
+  background: #fbbf24;
+  border-radius: 1px;
+}
+
+.vault-brand {
+  font-size: 7px;
+  font-weight: 800;
+  color: #38bdf8;
+  font-family: var(--rh-font-heading, sans-serif);
+}
+
+@keyframes card-peek-motion {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Floating Currency Orbs */
+.floating-coin {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #f59e0b;
+  font-weight: 800;
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.floating-coin.coin-1 {
+  top: 4px;
+  left: 6px;
+  animation: coin-drift-1 3s ease-in-out infinite alternate;
+}
+
+.floating-coin.coin-2 {
+  bottom: 8px;
+  right: 6px;
+  animation: coin-drift-2 3.4s ease-in-out 0.5s infinite alternate;
+}
+
+@keyframes coin-drift-1 {
+  0% { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(-8px) rotate(15deg); }
+}
+
+@keyframes coin-drift-2 {
+  0% { transform: translateY(0) rotate(0); }
+  100% { transform: translateY(-6px) rotate(-15deg); }
+}
+
+/* --------------------------------------------------------
+   6. Brand Gift Vouchers Scene (Gift Sparkles & Voucher Tag)
+   -------------------------------------------------------- */
+.gift-scene .gift-box-glow {
+  position: relative;
+  place-items: center;
+  display: grid;
+}
+
+/* Floating Sparkle Stars */
+.sparkle {
+  position: absolute;
+  color: #f59e0b;
+  font-weight: 900;
+  pointer-events: none;
+  animation: sparkle-glow 2s ease-in-out infinite alternate;
+}
+
+.sparkle.spark-1 {
+  top: 0;
+  right: 6px;
+  font-size: 16px;
+  animation-delay: 0s;
+}
+
+.sparkle.spark-2 {
+  bottom: 4px;
+  left: 4px;
+  font-size: 12px;
+  animation-delay: 0.6s;
+}
+
+.sparkle.spark-3 {
+  top: 10px;
+  left: 8px;
+  font-size: 11px;
+  animation-delay: 1.2s;
+}
+
+@keyframes sparkle-glow {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.6) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3) rotate(35deg);
+  }
+}
+
+.gift-tag-floating {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0f172a;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  transform: translateZ(52px) rotate(8deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 /* ========================================================
@@ -268,7 +843,7 @@
     grid-template-columns: 1fr;
   }
   .hx-art {
-    min-height: 180px;
+    min-height: 220px;
   }
   .hx-slab-copy {
     padding: 32px 28px;
@@ -292,7 +867,18 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hx-art::before,
-  .hx-art::after {
+  .hx-art::after,
+  .holo-card-shine,
+  .qr-laser-line,
+  .sonar-ring,
+  .voice-wave,
+  .eq-bar,
+  .nfc-pulse-arc,
+  .receipt-tape,
+  .vault-slider-card,
+  .floating-coin,
+  .sparkle,
+  .micro-badge {
     animation: none;
   }
 }

@@ -87,6 +87,20 @@ export default function Contact() {
 
                 <div className="rh-contact-info-card">
                   <div className="d-flex align-items-center gap-3">
+                    <div className="rh-feature-icon-box mb-0" style={{ background: '#e0f2fe', color: '#0284c7', border: '1px solid #bae6fd' }}>
+                      <i className="bi bi-telephone-fill"></i>
+                    </div>
+                    <div>
+                      <div className="text-secondary small">Direct Phone Line</div>
+                      <a href="tel:022-45857049" className="text-dark fw-bold fs-6 text-decoration-none hover-primary">
+                        022-4585 7049
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rh-contact-info-card">
+                  <div className="d-flex align-items-center gap-3">
                     <div className="rh-feature-icon-box mb-0" style={{ background: '#ecfdf5', color: '#059669', border: '1px solid #a7f3d0' }}>
                       <i className="bi bi-whatsapp"></i>
                     </div>
@@ -98,8 +112,8 @@ export default function Contact() {
                 </div>
 
                 <div className="rh-contact-info-card">
-                  <div className="d-flex align-items-center gap-3">
-                    <div className="rh-feature-icon-box mb-0" style={{ background: '#fef3c7', color: '#b45309', border: '1px solid #fde68a' }}>
+                  <div className="d-flex align-items-start gap-3">
+                    <div className="rh-feature-icon-box mb-0 mt-1" style={{ background: '#fef3c7', color: '#b45309', border: '1px solid #fde68a' }}>
                       <i className="bi bi-geo-alt-fill"></i>
                     </div>
                     <div>
@@ -107,8 +121,11 @@ export default function Contact() {
                       <div className="text-dark fw-bold small">
                         Rhizobee Innovations Private Limited
                       </div>
-                      <div className="text-secondary" style={{ fontSize: '0.78rem' }}>
-                        Pan-India Operations & Merchant Network
+                      <div className="text-secondary" style={{ fontSize: '0.8rem', lineHeight: '1.4' }}>
+                        101, Wellington Business Park 2, Andheri Kurla Road, Marol, Andheri East, Mumbai 400059
+                      </div>
+                      <div className="text-muted mt-1" style={{ fontSize: '0.72rem' }}>
+                        CIN: U72900DL2022PTC393198
                       </div>
                     </div>
                   </div>
